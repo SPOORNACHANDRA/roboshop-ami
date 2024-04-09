@@ -44,3 +44,4 @@ resource "aws_ami_from_instance" "ami" {
   name               = "roboshop-ami-v1"
   source_instance_id = aws_instance.ami.id
 }
+
