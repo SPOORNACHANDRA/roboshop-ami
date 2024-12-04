@@ -9,7 +9,7 @@ resource "aws_instance" "frontend" {
 }
 resource "aws_route53_record" "frontend" {
   zone_id = "Z095093821BU1FHHF63BW"
-  name    = "frontend-dev.poornadevops.online"
+  name    = "frontend-dev.devopsproject.online"
   type    = "A"
   ttl     = 30
   records = [aws_instance.frontend.private_ip]
