@@ -1,3 +1,20 @@
+resource "aws_instance" "frontend" {
+  ami           = "ami-03265a0778a880afb"
+  instance_type = "t3.small"
+  vpc_security_group_ids = [ "sg-0577c0c4fa7613b87" ]
+
+  tags = {
+    Name = "frontend"
+  }
+}
+resource "aws_route53_record" "frontend" {
+  zone_id = "Z095093821BU1FHHF63BW"
+  name    = "frontend-dev.poornadevops.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.frontend.private_ip]
+
+
 terraform {
   backend "s3" {
     bucket = "tf-state-poorna"
